@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: head"/>
+<body>
+<header th:insert="fragments :: header"></header>
+<main>
+  <div >
+    <h1>Dados da conta</h1>
+    <h2>Você pode alterar sua senha caso desejar</h2>
+  </div>
+  <div >
+    <form method="POST" th:action="@{/profile/changePassword}">
+      <div>
+        <input name="email" th:value="${#authentication.getPrincipal().getEmail()}" type="hidden">
+        <div class="title">
+          <h1>Alterar Senha</h1>
+        </div>
+        <h2><span th:if="${passwordChange == 'success'}">Senha Alterada com Sucesso!</span></h2>
+        <div class="fast-row">
+          <p>
+            <label for="oldPassword">Senha Antiga:</label>
+            <input  id="oldPassword"                   name="senhaAntiga" placeholder="Digite aqui a antiga senha" required type="password"                   value="">
+          </p>
+        </div>
+        <div class="fast-row">
+          <p>
+            <label for="newPassword">Senha Nova</label>
+            <input id="newPassword" name="senhaNova"
+                   placeholder="Digite aqui a nova senha"
+                   required type="password" value="">
+          </p>
+        </div>
+      </div>
+      <button  type="submit">Alterar Senha</button>
+      <div>
+        <br>
+        <h2> Email: <span th:text="${#authentication.getPrincipal().getEmail()}"></span>
+        </h2>
+        <h2> Telefone: <span
+                th:text="${#authentication.getPrincipal().getTelefone()}"></span>
+        </h2>
+      </div>
+    </form>
+  </div>
+</main>
+<footer th:insert="fragments :: footer"></footer>
+<div th:include="fragments :: modals"></div>
+</body>
+</html>

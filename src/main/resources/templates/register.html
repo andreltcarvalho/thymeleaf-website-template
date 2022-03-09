@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: head"/>
+<body>
+<header th:insert="fragments :: header"></header>
+<main>
+    <div>
+        <h1>Cadastro</h1>
+        <h2>Crie sua conta para ter acesso à funcionalidades exclusivas!</h2>
+    </div>
+    <div>
+        <form method="POST" th:action="@{/register}" th:object="${UserEntity}">
+            <div>
+                <p>
+                    <label for="nomeId">Nome</label>
+                    <input id="nomeId" placeholder="Seu Nome completo" required
+                           th:field="*{nome}"
+                           type="text">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="emailId">Email</label>
+                    <input id="emailId" placeholder="Insira um e-mail válido" required
+                           th:field="*{email}" type="text">
+            </div>
+            <div>
+                <p>
+                    <label for="telefoneId">Telefone</label>
+                    <input id="telefoneId" pattern="^[0-9]*$"
+                           placeholder="Telefone (apenas números)" required
+                           th:field="*{telefone}" title="O Telefone deve conter somente números." type="tel">
+            </div>
+            <div>
+                <p>
+                    <label for="passwordId">Senha</label>
+                    <input id="passwordId"  placeholder="Senha" required
+                           th:field="*{password}" title="Sua senha deve conter pelo menos 8 caracteres."
+                           type="password">
+                </p>
+            </div>
+            <div>
+                <br>
+                <button type="submit">Criar Conta</button>
+            </div>
+        </form>
+    </div>
+</main>
+<footer th:insert="fragments :: footer"></footer>
+<div th:include="fragments :: modals"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: head"/>
+<body>
+<header th:insert="fragments :: header"></header>
+<main>
+    <div>
+        <h1>Bem vindo ao template.</h1>
+    </div>
+    <div class="cookie-banner" th:if="${showDialog==true}">
+        <p>
+            Ao continuar navegando, você concorda com os termos da <a href="/privacy"> política de privacidade</a>
+        </p>
+        <form method="POST" th:action="@{/ip}">
+            <button class="btn btn-success" type="submit">Aceitar</button>
+        </form>
+    </div>
+</main>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

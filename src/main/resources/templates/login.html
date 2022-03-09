@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: head"/>
+<body>
+<header th:insert="fragments :: header"></header>
+<main>
+    <div class="sobre">
+        <h1>Entre no site</h1>
+        <h2>Faça login para ter acesso à funcionalidades exclusivas!</h2>
+    </div>
+    <div class="bus-background">
+        <div class="input-form">
+            <form method="post" name="f" th:action="@{/login}">
+                <div th:if="${param.error}">
+                    <h2 class="message">E-mail ou Senha Inválidos.</h2>
+                </div>
+                <div th:if="${param.logout}">
+                    <h2 class="message">Você foi desconectado</h2>
+                </div>
+                <div class="fast-row">
+                    <p>
+                        <label for="username">Email</label>
+                        <input class="fast-form-control" id="username" name="username" placeholder="Insira seu E-mail"
+                               required type="text"/>
+                    </p>
+                </div>
+                <div class="fast-row">
+                    <p>
+                        <label for="passwordId">Senha</label>
+                        <input class="fast-form-control" id="passwordId" name="password" placeholder="Insira sua Senha"
+                               required
+                               type="password">
+                    </p>
+                </div>
+                <div class="fast-row">
+                    <br>
+                    <button class="fast-submit-btn" type="submit">Entrar</button>
+                </div>
+                <br>
+                <h3>
+                    <a href="register">Não Possui conta? Cadastre-se Aqui</a>
+                </h3>
+                <h3>
+                    <a href="forgotPassword">Esqueci minha senha</a>
+                </h3>
+            </form>
+        </div>
+    </div>
+</main>
+<footer th:insert="fragments :: footer"></footer>
+</body>
+</html>
