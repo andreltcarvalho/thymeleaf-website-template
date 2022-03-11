@@ -5,47 +5,47 @@
 <body>
 <header th:insert="fragments :: header"></header>
 <main>
-    <div>
-        <h1>Cadastro</h1>
-        <h2>Crie sua conta para ter acesso à funcionalidades exclusivas!</h2>
-    </div>
-    <div>
-        <form method="POST" th:action="@{/register}" th:object="${UserEntity}">
-            <div>
-                <p>
-                    <label for="nomeId">Nome</label>
-                    <input id="nomeId" placeholder="Seu Nome completo" required
-                           th:field="*{nome}"
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Get started with your free account</p>
+            <form method="POST" th:action="@{/register}" th:object="${UserEntity}">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input class="form-control" id="name" placeholder="Your full name" required th:field="*{name}"
                            type="text">
-                </p>
-            </div>
-            <div>
-                <p>
-                    <label for="emailId">Email</label>
-                    <input id="emailId" placeholder="Insira um e-mail válido" required
-                           th:field="*{email}" type="text">
-            </div>
-            <div>
-                <p>
-                    <label for="telefoneId">Telefone</label>
-                    <input id="telefoneId" pattern="^[0-9]*$"
-                           placeholder="Telefone (apenas números)" required
-                           th:field="*{telefone}" title="O Telefone deve conter somente números." type="tel">
-            </div>
-            <div>
-                <p>
-                    <label for="passwordId">Senha</label>
-                    <input id="passwordId"  placeholder="Senha" required
-                           th:field="*{password}" title="Sua senha deve conter pelo menos 8 caracteres."
-                           type="password">
-                </p>
-            </div>
-            <div>
-                <br>
-                <button type="submit">Criar Conta</button>
-            </div>
-        </form>
-    </div>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <input class="form-control" id="emailId" placeholder="Insert a valid e-mail" required
+                           th:field="*{email}" type="email">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <input class="form-control" id="phoneId" pattern="^[0-9]*$" placeholder="Mobile (only numbers)"
+                           required th:field="*{phone}" title="The phone must have only numbers." type="tel">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input class="form-control" id="passwordId" placeholder="At least 8 characters."
+                           required th:field="*{password}" title="" type="password">
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button class="btn btn-dark btn-block" type="submit"> Create Account</button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Have an account? <a href="/login">Log In</a></p>
+            </form>
+        </article>
+    </div> <!-- card.// -->
+
 </main>
 <footer th:insert="fragments :: footer"></footer>
 <div th:include="fragments :: modals"></div>

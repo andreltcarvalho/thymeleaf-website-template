@@ -6,6 +6,8 @@ import com.template.util.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +31,9 @@ public class ProfileController {
         if (!HttpUtils.isLogged()) {
             return new ModelAndView("redirect:/home");
         }
-        return new ModelAndView("profile");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = (UserEntity) authentication.getPrincipal();
+        return new ModelAndView("profile").addObject("userLogged",user);
     }
 
     @GetMapping("/profile/home")

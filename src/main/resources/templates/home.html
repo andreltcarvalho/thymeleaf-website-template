@@ -6,14 +6,39 @@
 <header th:insert="fragments :: header"></header>
 <main>
     <div>
-        <h1>Bem vindo ao template.</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 align="center" style="color:#343A40;">Welcome to the Template.</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
     <div class="cookie-banner" th:if="${showDialog==true}">
         <p>
-            Ao continuar navegando, você concorda com os termos da <a href="/privacy"> política de privacidade</a>
+            We use cookies to provide a better experience for our users. To get more information about the use of
+            cookies, see our <a href="/privacy">privacy policy</a>. By keeping
+            browsing our site, you agree to our politics.</a>
         </p>
         <form method="POST" th:action="@{/ip}">
-            <button class="btn btn-success" type="submit">Aceitar</button>
+            <button class="btn btn-ligth" type="submit">Accept</button>
         </form>
     </div>
 </main>

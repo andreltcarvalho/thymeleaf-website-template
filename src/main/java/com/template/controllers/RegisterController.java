@@ -44,9 +44,9 @@ public class RegisterController {
             return new ModelAndView("register")
                     .addObject("errors", "ERRO: Já existe uma conta cadastrada com o e-mail:" + userForm.getEmail());
         }
-        if (userEntityService.findByTelefone(userForm.getTelefone()) != null) {
+        if (userEntityService.findByTelefone(userForm.getPhone()) != null) {
             return new ModelAndView("register")
-                    .addObject("errors", "ERRO: Já existe uma conta cadastrada com o telefone:" + userForm.getTelefone());
+                    .addObject("errors", "ERRO: Já existe uma conta cadastrada com o telefone:" + userForm.getPhone());
         }
         userEntityService.create(userForm);
         mailSender.sendVerificationEmail(userForm);

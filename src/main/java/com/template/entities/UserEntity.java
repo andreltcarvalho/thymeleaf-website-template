@@ -17,11 +17,12 @@ public class UserEntity implements Serializable, UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String name;
+
     private String password;
 
     @Column(name = "phone", unique = true)
-    private String telefone;
+    private String phone;
 
     private boolean enabled;
 
@@ -40,22 +41,22 @@ public class UserEntity implements Serializable, UserDetails {
 
     }
 
-    public UserEntity(Long id, String nome, String email, String password, String telefone, List<Role> roles) {
+    public UserEntity(Long id, String nome, String email, String password, String phone, List<Role> roles) {
         this.id = id;
-        this.nome = nome;
+        this.name = nome;
         this.email = email;
         this.password = password;
-        this.telefone = telefone;
+        this.phone = phone;
         this.roles = roles;
         this.enabled = false;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return this.name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getVerificationCode() {
@@ -67,7 +68,7 @@ public class UserEntity implements Serializable, UserDetails {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -86,12 +87,12 @@ public class UserEntity implements Serializable, UserDetails {
         this.password = password;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -170,8 +171,8 @@ public class UserEntity implements Serializable, UserDetails {
     public String toString() {
         return "UserEntity{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", telefone='" + telefone + '\'' +
+                ", nome='" + name + '\'' +
+                ", telefone='" + phone + '\'' +
                 ", enabled=" + enabled +
                 ", email='" + email + '\'' +
                 '}';

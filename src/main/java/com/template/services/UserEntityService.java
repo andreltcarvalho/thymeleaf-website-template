@@ -98,7 +98,7 @@ public class UserEntityService {
     }
 
     public UserEntity findByTelefone(String telefone) {
-        return userEntityDAO.findByTelefone(telefone);
+        return userEntityDAO.findByPhone(telefone);
     }
 }
 

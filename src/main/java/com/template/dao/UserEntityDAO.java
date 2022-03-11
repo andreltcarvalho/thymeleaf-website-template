@@ -9,5 +9,5 @@ public interface UserEntityDAO extends JpaRepository<UserEntity, Long> {
 
     UserEntity findByVerificationCode(String code);
 
-    UserEntity findByTelefone(String telefone);
+    UserEntity findByPhone(String phone);
 }

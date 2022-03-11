@@ -1,5 +1,43 @@
 /*computers and notebooks*/
-@media only screen and (min-width: 1024px) {}
+@media only screen and (min-width: 1024px) {
+    main .login-form {
+        margin: auto;
+        margin-top: 4em;
+        margin-bottom: 7.5em;
+        text-align: center;
+    }
+
+    main .profile-form {
+        margin: auto;
+        text-align: center;
+    }
+}
 
 /* For mobile phones: */
 @media only screen and (max-width: 1023px) {}
+
+.cookie-banner p {
+    color: white;
+}
+
+.cookie-banner a {
+    text-decoration: underline;
+    color: skyblue;
+}
+
+.cookie-banner {
+    position: fixed;
+    background-color: #343A40;
+    bottom: 40px;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    padding: 5px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+
+}

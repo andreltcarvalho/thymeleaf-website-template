@@ -6,10 +6,10 @@
 <header th:insert="fragments :: header"></header>
 <main>
     <div th:object="${userEntity}">
-        <h1>Conta Criada com Sucesso!</h1>
-        <h2>Para validar o seu acesso é necessário verificar a sua conta</h2>
-        <h2>Foi enviado um link de verificação para o e-mail: <span th:text="*{email}"></span></h2>
-        <h3>O Processo pode demorar alguns minutos</h3>
+        <h1>Account Created Successfully!</h1>
+        <h2>To validate your access you need to verify your account</h2>
+        <h2>A verification link has been sent to the email:<span th:text="*{email}"></span></h2>
+        <h3> The process may take a few minutes</h3>
     </div>
 </main>
 <footer th:insert="fragments :: footer"></footer>

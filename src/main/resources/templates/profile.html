@@ -1,48 +1,96 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="fragments :: head"/>
 <body>
 <header th:insert="fragments :: header"></header>
 <main>
-  <div >
-    <h1>Dados da conta</h1>
-    <h2>Você pode alterar sua senha caso desejar</h2>
-  </div>
-  <div >
-    <form method="POST" th:action="@{/profile/changePassword}">
-      <div>
-        <input name="email" th:value="${#authentication.getPrincipal().getEmail()}" type="hidden">
-        <div class="title">
-          <h1>Alterar Senha</h1>
+    <section style="background-color: #eee;">
+        <div class="profile-form">
+            <div class="container py-5">
+                <h1 align="center">User Page</h1>
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        <span th:text="${#authentication.getPrincipal().getName()}"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        <span th:text="${#authentication.getPrincipal().getEmail()}"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Phone</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        <span th:text="${#authentication.getPrincipal().getPhone()}"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4 align="center">Change Password</h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <form method="POST" th:action="@{/profile/changePassword}">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Old Password</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">
+                                            <input class="form-control" id="oldPassword" name="senhaAntiga"
+                                                   placeholder="Insert here your old password"
+                                                   required type="password" value="">
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">New Password</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-muted mb-0">
+                                            <input class="form-control" id="newPassword" name="senhaNova"
+                                                   placeholder="Inser here your new password"
+                                                   required type="password" value="">
+                                        </p>
+                                    </div>
+                                </div>
+                                <input name="email" th:value="${#authentication.getPrincipal().getEmail()}"
+                                       type="hidden">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-block btn-dark" type="submit">Change</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h2><span th:if="${passwordChange == 'success'}">Senha Alterada com Sucesso!</span></h2>
-        <div class="fast-row">
-          <p>
-            <label for="oldPassword">Senha Antiga:</label>
-            <input  id="oldPassword"                   name="senhaAntiga" placeholder="Digite aqui a antiga senha" required type="password"                   value="">
-          </p>
-        </div>
-        <div class="fast-row">
-          <p>
-            <label for="newPassword">Senha Nova</label>
-            <input id="newPassword" name="senhaNova"
-                   placeholder="Digite aqui a nova senha"
-                   required type="password" value="">
-          </p>
-        </div>
-      </div>
-      <button  type="submit">Alterar Senha</button>
-      <div>
-        <br>
-        <h2> Email: <span th:text="${#authentication.getPrincipal().getEmail()}"></span>
-        </h2>
-        <h2> Telefone: <span
-                th:text="${#authentication.getPrincipal().getTelefone()}"></span>
-        </h2>
-      </div>
-    </form>
-  </div>
+    </section>
 </main>
 <footer th:insert="fragments :: footer"></footer>
 <div th:include="fragments :: modals"></div>

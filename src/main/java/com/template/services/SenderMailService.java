@@ -51,7 +51,7 @@ public class SenderMailService {
         helper.setFrom(fromAddress, senderName);
         helper.setTo(toAddress);
         helper.setSubject(subject);
-        content = content.replace("[[name]]", user.getNome());
+        content = content.replace("[[name]]", user.getName());
         String verifyURL = siteURL + "/verify?code=" + user.getVerificationCode();
         content = content.replace("[[URL]]", verifyURL);
         helper.setText(content, true);
@@ -80,7 +80,7 @@ public class SenderMailService {
             helper.setFrom(fromAddress, senderName);
             helper.setTo(toAddress);
             helper.setSubject(subject);
-            content = content.replace("[[name]]", user.getNome());
+            content = content.replace("[[name]]", user.getName());
             user.setVerificationCode(randomCode);
             String verifyURL = siteURL + "/newPassword?verificationCode=" + user.getVerificationCode();
             content = content.replace("[[URL]]", verifyURL);
