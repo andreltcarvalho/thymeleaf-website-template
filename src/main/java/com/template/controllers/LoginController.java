@@ -65,7 +65,7 @@ public class LoginController {
             user.setVerificationCode(null);
             userEntityService.update(user);
             logger.info("User " + user.getEmail() + " changed password");
-            return new ModelAndView("newPassword").addObject("messages", "Password Successfully updated!! Return to the log in page.n");
+            return new ModelAndView("newPassword").addObject("messages", "Password Successfully updated!! Return to the log in page");
         } else {
             return new ModelAndView("newPassword").addObject("errors", "Error while updating password!");
         }
