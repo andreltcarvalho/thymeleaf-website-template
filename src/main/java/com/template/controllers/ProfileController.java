@@ -51,9 +51,9 @@ public class ProfileController {
             user.setPassword(new BCryptPasswordEncoder().encode(senhaNova));
             service.update(user);
             logger.info("Usuario " + user.getEmail() + " trocou de senha.");
-            return new ModelAndView("profile").addObject("messages", Arrays.asList("A senha foi alterada com sucesso!"));
+            return new ModelAndView("profile").addObject("messages", Arrays.asList("Password sucessfully changed!"));
         } else {
-            return new ModelAndView("profile").addObject("errors", Arrays.asList("A Senha antiga foi digitada incorretamente! Tente novamente"));
+            return new ModelAndView("profile").addObject("errors", Arrays.asList("The old password is incorrect, try again!"));
         }
     }
 }

@@ -42,11 +42,11 @@ public class RegisterController {
         }
         if (userEntityService.findByEmail(userForm.getEmail()) != null) {
             return new ModelAndView("register")
-                    .addObject("errors", "ERRO: Já existe uma conta cadastrada com o e-mail:" + userForm.getEmail());
+                    .addObject("errors", "There is already an account registered with the e-mail: " + userForm.getEmail());
         }
         if (userEntityService.findByTelefone(userForm.getPhone()) != null) {
             return new ModelAndView("register")
-                    .addObject("errors", "ERRO: Já existe uma conta cadastrada com o telefone:" + userForm.getPhone());
+                    .addObject("errors", "There is already an account registered with the phone: " + userForm.getPhone());
         }
         userEntityService.create(userForm);
         mailSender.sendVerificationEmail(userForm);
@@ -59,10 +59,13 @@ public class RegisterController {
         if (HttpUtils.isLogged()) {
             return new ModelAndView("redirect:/home");
         }
-        ModelAndView model = new ModelAndView("postRegister");
         UserEntity user = userEntityService.findByVerificationCode(verificationCode);
-        model.addObject("userEntity", user);
-        return model;
+        return new ModelAndView("home").addObject("messages", postRegsiterMessage(user));
+    }
+
+    public String postRegsiterMessage(UserEntity user) {
+        return "Account Created Successfully! \n \n"
+                + "A verification link has been sent to the email: " + user.getEmail();
     }
 
     @GetMapping("/verify")
@@ -71,9 +74,9 @@ public class RegisterController {
             return new ModelAndView("redirect:/home");
         }
         if (userEntityService.verify(code)) {
-            return new ModelAndView("successfulVerification");
+            return new ModelAndView("redirect:/login").addObject("messages", "User successfully verified! You can log in now.");
         } else {
-            throw new IllegalStateException("Esse usuário já foi verificado, volte para a tela inicial");
+            return new ModelAndView("redirect:/login").addObject("errors", "This user is already verified, you can log in now.");
         }
     }
 }

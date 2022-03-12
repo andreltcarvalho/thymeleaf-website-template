@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Arrays;
-
 @Controller
 public class LoginController {
 
@@ -48,9 +46,9 @@ public class LoginController {
         UserEntity user = userEntityService.findByEmail(email);
         if (user != null && user.isEnabled() == true) {
             mailService.sendNewPasswordEmail(user);
-            return new ModelAndView("forgotPassword").addObject("messages", "Email enviado com sucesso!");
+            return new ModelAndView("forgotPassword").addObject("messages", "E-mail sent sucessfully!");
         } else {
-            return new ModelAndView("forgotPassword").addObject("errors", "Email inválido ou conta inexistente!");
+            return new ModelAndView("forgotPassword").addObject("errors","Invalid e-mail or nonexistent account!");
         }
     }
 
@@ -66,10 +64,10 @@ public class LoginController {
             user.setPassword(new BCryptPasswordEncoder().encode(password));
             user.setVerificationCode(null);
             userEntityService.update(user);
-            logger.info("Usuario " + user.getEmail() + " trocou de senha.");
-            return new ModelAndView("newPassword").addObject("messages", Arrays.asList("Senha atualizada com sucesso!"));
+            logger.info("User " + user.getEmail() + " changed password");
+            return new ModelAndView("redirect:/login").addObject("messages", "Password Successfully updated!!");
         } else {
-            return new ModelAndView("newPassword").addObject("errors", Arrays.asList("Erro ao atualizar a senha!"));
+            return new ModelAndView("newPassword").addObject("errors", "Error while updating password!");
         }
     }
 }

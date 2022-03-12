@@ -12,9 +12,6 @@
                 <hr>
                 <p class="text-success text-center"> Log in to access exclusive features!</p>
                 <form method="post" name="f" th:action="@{/login}">
-                    <div th:if="${param.error}">
-                        <h2 class="message">Invalid e-mail or password!</h2>
-                    </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -38,6 +35,9 @@
                     <div class="form-group">
                         <button class="btn btn-dark btn-block" type="submit"> Login</button>
                     </div>
+                    <div th:if="${param.error}">
+                        <h2 class="message">Invalid e-mail or password!</h2>
+                    </div>
                     <p class="text-center"><a class="btn" href="/forgotPassword">Forgot my password</a></p>
                     <p class="text-center"><a class="btn" href="/register">Don't you have an account? Register Here!</a>
                     </p>
@@ -47,5 +47,6 @@
     </div>
 </main>
 <footer th:insert="fragments :: footer"></footer>
+<div th:include="fragments :: modals"></div>
 </body>
 </html>

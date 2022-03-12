@@ -22,7 +22,7 @@ public class ErrorController {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String exception(final Throwable throwable, final Model model) {
         logger.error("Exception during execution of SpringSecurity application", throwable);
-        String errorMessage = (throwable != null ? throwable.getMessage() : "Erro Desconhecido");
+        String errorMessage = (throwable != null ? throwable.getMessage() : "Unknown Error");
         model.addAttribute("errorMessage", errorMessage);
         return "error";
     }
