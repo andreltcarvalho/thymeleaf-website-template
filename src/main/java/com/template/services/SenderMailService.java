@@ -38,13 +38,13 @@ public class SenderMailService {
         String toAddress = user.getEmail();
         String fromAddress = "thymeleaf.template@gmail.com";
         String senderName = "Thymeleaf Template";
-        String subject = "Por favor, verifique sua conta";
-        String content = "Olá [[name]],<br> <br><br>"
-                + "Clique no link abaixo para habilitar sua conta:<br><br>"
-                + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFICAR CONTA</a></h3><br><br>"
-                + "Este é um e-mail automático e não deve ser respondido.<br>"
-                + "Obrigado,<br><br>"
-                + "André Luis.";
+        String subject = "Please, verify your account";
+        String content = "Hello [[name]],<br> <br><br>"
+                + "Click the link below to verify your account.:<br><br>"
+                + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFY ACCOUNT</a></h3><br><br>"
+                + "This is an automatic e-mail and must not be answered.<br><br>"
+                + "Thank you.<br><br>";
+
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -67,11 +67,12 @@ public class SenderMailService {
         String randomCode = RandomString.make(64);
         String fromAddress = "thymeleaf.template@gmail.com";
         String senderName = "Thymeleaf Template";
-        String subject = "Recuperar Senha ";
-        String content = "Olá [[name]],<br><br>"
-                + "Para cadastrar uma nova senha, entre no link abaixo: <br>"
-                + "<h3><a href=\"[[URL]]\" target=\"_self\">RECUPERAR SENHA</a></h3><br><br>"
-                + "André Luis.";
+        String subject = "Recover Password";
+        String content = "Hello [[name]],<br><br>"
+                + "Click the link below to create a new password: <br><br>"
+                + "<h3><a href=\"[[URL]]\" target=\"_self\">CREATE NEW PASSWORD</a></h3><br><br>"
+                + "This is an automatic e-mail and must not be answered.<br><br>"
+                + "Thank you.";
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
