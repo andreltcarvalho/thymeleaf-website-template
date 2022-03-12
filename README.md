@@ -9,8 +9,7 @@
 André Luís Carvalho</b></sub></a>
 </div>
 
-:thinking: As a Java Backend developer, without much trouble with creating projects. Was
-infinite doubts:
+:thinking: As a Java Backend developer, always had much trouble with creating new projects. These were some of the questions i had:
 
 ```text
 - what technology to learn for Frontend?
