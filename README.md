@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Thymeleaf Website Template</h1>
 </div>
-<p align="center"> You can access the template by clicking<a href="https://thymeleaf-website-template.herokuapp.com/home">here</a></p>
+<p align="center"> You can access the template by<a href="https://thymeleaf-website-template.herokuapp.com/home"> clicking here</a></p>
 
 <div align="center">
 <h2>Powered by</h2>
