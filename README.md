@@ -10,7 +10,7 @@ André Luis Carvalho</b></sub></a>
 </div>
 
 :thinking: Como um desenvolvedor Backend em Java, sempre tive bastante dificuldade com a criação de projetos. Eram
-infinitas dúvida:
+infinitas dúvidas:
 
 ```text
 - qual tecnologia aprender para o Frontend?

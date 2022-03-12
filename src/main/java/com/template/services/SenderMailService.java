@@ -36,15 +36,15 @@ public class SenderMailService {
     public void sendVerificationEmail(UserEntity user)
             throws MessagingException, UnsupportedEncodingException {
         String toAddress = user.getEmail();
-        String fromAddress = "noreply.fastguiche@gmail.com";
-        String senderName = "Fast Guiche";
+        String fromAddress = "thymeleaf.template@gmail.com";
+        String senderName = "Thymeleaf Template";
         String subject = "Por favor, verifique sua conta";
         String content = "Olá [[name]],<br> <br><br>"
                 + "Clique no link abaixo para habilitar sua conta:<br><br>"
                 + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFICAR CONTA</a></h3><br><br>"
                 + "Este é um e-mail automático e não deve ser respondido.<br>"
                 + "Obrigado,<br><br>"
-                + "Fast Guiche.";
+                + "André Luis.";
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -65,14 +65,13 @@ public class SenderMailService {
     public void sendNewPasswordEmail(UserEntity user) {
         String toAddress = user.getEmail();
         String randomCode = RandomString.make(64);
-        String fromAddress = "noreply.fastguiche@gmail.com";
-        String senderName = "Fast Guichê";
-        String subject = "Recuperar Senha - Fast Guichê";
+        String fromAddress = "thymeleaf.template@gmail.com";
+        String senderName = "Thymeleaf Template";
+        String subject = "Recuperar Senha ";
         String content = "Olá [[name]],<br><br>"
                 + "Para cadastrar uma nova senha, entre no link abaixo: <br>"
                 + "<h3><a href=\"[[URL]]\" target=\"_self\">RECUPERAR SENHA</a></h3><br><br>"
-                + "Qualquer dúvida entre em contato via Whatsapp: 35 98868-6198.<br>"
-                + "Fast Guiche.";
+                + "André Luis.";
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
